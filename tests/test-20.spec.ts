@@ -1,0 +1,38 @@
+import { test, expect } from '@playwright/test';
+
+test('test', async ({ page }) => {
+  await page.goto('https://automationexercise.com/');
+  await page.getByRole('link', { name: ' Products' }).click();
+  await page.getByRole('heading', { name: 'All Products' }).click();
+  await page.getByText('All Products  Added! Your').click();
+  await page.getByRole('textbox', { name: 'Search Product' }).click();
+  await page.getByRole('textbox', { name: 'Search Product' }).fill('rose pink');
+  await page.getByRole('textbox', { name: 'Search Product' }).press('Enter');
+  await page.locator('#submit_search').click();
+  await expect(page.getByText('Rose Pink Embroidered Maxi').nth(1)).toBeVisible();
+  await page.getByRole('link', { name: ' View Product' }).click();
+  await page.locator('body').press('NumLock');
+  await page.getByText('Rose Pink Embroidered Maxi Dress');
+  await expect(page.getByText('Condition: New')).toBeVisible();
+  await page.getByText('Availability: In Stock').click();
+  await page.getByText('Brand: Madame').click();
+  await page.getByText('Rs. 2300 Quantity: Add to cart').click();
+  await page.getByRole('button', { name: ' Add to cart' }).click();
+  await page.getByRole('link', { name: 'View Cart' }).click();
+  await expect(page.locator('#cart_info')).toBeVisible();
+  await expect(page.locator('#product-38')).toContainText('Rose Pink Embroidered Maxi Dress');
+  await expect(page.locator('#product-38')).toContainText('Rs. 2300');
+  await page.getByRole('cell', { name: 'Quantity' }).click();
+  await page.getByRole('link', { name: ' Signup / Login' }).click();
+  await page.locator('form').filter({ hasText: 'Login' }).getByPlaceholder('Email Address').click();
+  await page.locator('form').filter({ hasText: 'Login' }).getByPlaceholder('Email Address').fill('frozenshreya@gmail.com');
+  await page.getByRole('textbox', { name: 'Password' }).click();
+  await page.getByRole('textbox', { name: 'Password' }).fill('password');
+  await page.getByRole('button', { name: 'Login' }).click();
+  await page.getByRole('link', { name: ' Cart' }).click();
+  await page.locator('.cart_quantity_delete').first().click();
+  await expect(page.getByRole('cell', { name: 'Rose Pink Embroidered Maxi' })).toBeVisible();
+  await expect(page.locator('#product-38')).toContainText('Rs. 2300');
+  await page.getByRole('button', { name: '1' }).click();
+  await expect(page.locator('#product-38')).toContainText('Rs. 2300');
+});

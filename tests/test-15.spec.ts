@@ -74,7 +74,7 @@ test('test', async ({ page }) => {
   await expect(page.locator('#cart_info')).toBeVisible();
   const orderTable = page.locator('#cart_info');
   await expect(orderTable).toBeVisible();
-  const productRow = orderTable.locator('#product-1'); // Blue Top is product-1
+  const productRow = orderTable.locator('#product-1');
   await expect(productRow.locator('.cart_description')).toContainText('Blue Top');
   await expect(productRow.locator('.cart_price')).toHaveText('Rs. 500');
   await expect(productRow.locator('.cart_quantity')).toHaveText('1');
