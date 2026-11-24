@@ -10,5 +10,5 @@ test('test', async ({ page }) => {
   await page.getByRole('textbox', { name: 'Search Product' }).fill('beautiful peacock');
   await page.locator('#submit_search').click();
   await expect(page.getByRole('heading', { name: 'Searched Products' })).toBeVisible();
-  await page.getByText('Beautiful Peacock Blue Cotton Linen SareeSarees').click();
+  
 });

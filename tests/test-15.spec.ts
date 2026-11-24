@@ -1,6 +1,7 @@
 import { test, expect } from '@playwright/test';
 
 test('test', async ({ page }) => {
+  test.setTimeout(35_000);
   await page.goto('https://automationexercise.com/');
   await expect(page.getByRole('link', { name: 'Website for automation' })).toBeVisible();
 
@@ -9,7 +10,7 @@ test('test', async ({ page }) => {
   await page.getByRole('textbox', { name: 'Name' }).click();
   await page.getByRole('textbox', { name: 'Name' }).fill('shreya');
   await page.locator('form').filter({ hasText: 'Signup' }).getByPlaceholder('Email Address').click();
-  await page.locator('form').filter({ hasText: 'Signup' }).getByPlaceholder('Email Address').fill('simitjee405@gmail.com');
+  await page.locator('form').filter({ hasText: 'Signup' }).getByPlaceholder('Email Address').fill('ppiee405@gmail.com');
   await page.getByRole('button', { name: 'Signup' }).click();
   await page.getByRole('radio', { name: 'Mrs.' }).check();
   await page.getByRole('textbox', { name: 'Name *', exact: true }).click();

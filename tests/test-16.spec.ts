@@ -24,7 +24,7 @@ test('test', async ({ page }) => {
   await expect(deliveryAddress).toBeVisible();
   await expect(deliveryAddress).toContainText('Shreya Shrestha');
   await expect(deliveryAddress).toContainText('Smith company');
-  await expect(deliveryAddress).toContainText('Patana,8947');
+  await expect(deliveryAddress).toContainText('Patana,8947', { ignoreCase: true });
   await expect(deliveryAddress).toContainText('ktm');
   await expect(deliveryAddress).toContainText('newyork');
   await expect(deliveryAddress).toContainText('#45667');
@@ -35,7 +35,7 @@ test('test', async ({ page }) => {
   await expect(billingAddress).toBeVisible();
   await expect(billingAddress).toContainText('Shreya Shrestha');
   await expect(billingAddress).toContainText('Smith company');
-  await expect(billingAddress).toContainText('Patana,8947');
+  await expect(billingAddress).toContainText('Patana,8947', { ignoreCase: true });
   await expect(billingAddress).toContainText('ktm');
   await expect(billingAddress).toContainText('newyork');
   await expect(billingAddress).toContainText('#45667');

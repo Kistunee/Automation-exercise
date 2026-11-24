@@ -6,7 +6,7 @@ test('test', async ({ page }) => {
   await page.getByRole('textbox', { name: 'Name' }).click();
   await page.getByRole('textbox', { name: 'Name' }).fill('shreya');
   await page.locator('form').filter({ hasText: 'Signup' }).getByPlaceholder('Email Address').click();
-  await page.locator('form').filter({ hasText: 'Signup' }).getByPlaceholder('Email Address').fill('ram485@gmail.com');
+  await page.locator('form').filter({ hasText: 'Signup' }).getByPlaceholder('Email Address').fill('rama485@gmail.com');
   await page.getByRole('button', { name: 'Signup' }).click();
   await page.getByRole('radio', { name: 'Mrs.' }).check();
   await page.getByRole('textbox', { name: 'Password *' }).click();

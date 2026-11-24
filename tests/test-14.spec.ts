@@ -13,7 +13,7 @@ test('test', async ({ page }) => {
   await page.getByRole('textbox', { name: 'Name' }).click();
   await page.getByRole('textbox', { name: 'Name' }).fill('shreya');
   await page.locator('form').filter({ hasText: 'Signup' }).getByPlaceholder('Email Address').click();
-  await page.locator('form').filter({ hasText: 'Signup' }).getByPlaceholder('Email Address').fill('sita45@gmail.com');
+  await page.locator('form').filter({ hasText: 'Signup' }).getByPlaceholder('Email Address').fill('sita4995@gmail.com');
   await page.getByRole('button', { name: 'Signup' }).click();
   await page.getByRole('radio', { name: 'Mrs.' }).check();
   await page.getByRole('textbox', { name: 'Name *', exact: true }).click();

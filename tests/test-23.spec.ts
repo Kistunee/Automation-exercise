@@ -9,7 +9,7 @@ test('test', async ({ page }) => {
   await page.getByRole('textbox', { name: 'Name' }).click();
   await page.getByRole('textbox', { name: 'Name' }).fill('shreya');
   await page.locator('form').filter({ hasText: 'Signup' }).getByPlaceholder('Email Address').click();
-  await page.locator('form').filter({ hasText: 'Signup' }).getByPlaceholder('Email Address').fill('siuyiyije405@gmail.com');
+  await page.locator('form').filter({ hasText: 'Signup' }).getByPlaceholder('Email Address').fill('siuyiiyije405@gmail.com');
   await page.getByRole('button', { name: 'Signup' }).click();
   await page.getByRole('radio', { name: 'Mrs.' }).check();
   await page.getByRole('textbox', { name: 'Name *', exact: true }).click();
@@ -40,7 +40,7 @@ test('test', async ({ page }) => {
   await page.getByRole('button', { name: 'Create Account' }).click();
   await expect(page.getByText('Account Created!')).toBeVisible();
   await page.getByRole('link', { name: 'Continue' }).click();
-  await expect(page.getByText('Logged in as shreya')).toBeVisible
+  await expect(page.getByText('Logged in as shreya')).toBeVisible();
 
   await page.locator('.features_items .productinfo').filter({ hasText: 'Blue Top' }).locator('.add-to-cart') .click();
   await page.getByRole('link', { name: 'View Cart' }).click();

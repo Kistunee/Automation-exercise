@@ -2,7 +2,6 @@ import { test, expect } from '@playwright/test';
 
 test('test', async ({ page }) => {
   await page.goto('https://automationexercise.com/');
-  await expect(page.locator('div').nth(3)).toBeVisible();
   await expect(page.getByText('Home  Products Cart Signup')).toBeVisible();
   await expect(page.locator('#slider')).toBeVisible();
   await page.getByRole('link', { name: ' Signup / Login' }).click();

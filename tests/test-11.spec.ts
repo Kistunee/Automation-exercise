@@ -8,7 +8,6 @@ test('test', async ({ page }) => {
   await page.getByRole('link', { name: ' Cart' }).click();
   await page.getByRole('heading', { name: 'Subscription' }).click();
   await expect(page.getByRole('heading')).toContainText('Subscription');
-  await page.getByRole('textbox', { name: 'Your email address' }).click();
   await page.getByRole('textbox', { name: 'Your email address' }).fill('frozenshreya@gmail.com');
   await page.locator('#subscribe').click();
   await page.getByText('You have been successfully').click();

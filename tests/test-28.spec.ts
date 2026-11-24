@@ -9,7 +9,7 @@ test('test', async ({ page }) => {
   await page.locator('form').filter({ hasText: 'Signup' }).getByPlaceholder('Email Address').fill('ram@gmail.com');
   await page.getByRole('button', { name: 'Signup' }).click();
   await page.locator('form').filter({ hasText: 'Email Address already exist!' }).getByPlaceholder('Email Address').click();
-  await page.locator('form').filter({ hasText: 'Email Address already exist!' }).getByPlaceholder('Email Address').fill('ramsita2281@gmail.com');
+  await page.locator('form').filter({ hasText: 'Email Address already exist!' }).getByPlaceholder('Email Address').fill('ramsiiita2281@gmail.com');
   await page.getByRole('button', { name: 'Signup' }).click();
   await page.getByRole('radio', { name: 'Mrs.' }).check();
   await page.getByRole('textbox', { name: 'Password *' }).click();

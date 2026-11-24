@@ -3,15 +3,12 @@ import { test, expect } from '@playwright/test';
 test('test', async ({ page }) => {
   await page.goto('https://automationexercise.com/');
   await expect(page.getByRole('link', { name: 'Website for automation' })).toBeVisible();
-  await page.getByRole('link', { name: 'Website for automation' }).click();
-  await page.getByRole('link', { name: ' Home' }).click();
-  await page.getByRole('link', { name: ' Products' }).click();
-  await page.getByRole('link', { name: ' Signup / Login' }).click();
   await expect(page.getByRole('link', { name: ' Signup / Login' })).toBeVisible();
+  await page.getByRole('link',{ name: 'Signup / Login'}).click();
   await page.getByRole('textbox', { name: 'Name' }).click();
   await page.getByRole('textbox', { name: 'Name' }).fill('shreya');
   await page.locator('form').filter({ hasText: 'Signup' }).getByPlaceholder('Email Address').click();
-  await page.locator('form').filter({ hasText: 'Signup' }).getByPlaceholder('Email Address').fill('frozenshreya@gmail.com');
+  await page.locator('form').filter({ hasText: 'Signup' }).getByPlaceholder('Email Address').fill('frozenshreya76@gmail.com');
   await page.getByRole('button', { name: 'Signup' }).click();
   await expect(page.getByText('Enter Account Information')).toBeVisible();
   await expect(page.locator('#uniform-id_gender2')).toBeVisible();

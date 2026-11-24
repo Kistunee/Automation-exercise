@@ -2,7 +2,6 @@ import { test, expect } from '@playwright/test';
 
 test('test', async ({ page }) => {
   await page.goto('https://automationexercise.com/');
-  await page.getByText('AutomationExercise Full-').first().click();
   await page.getByRole('link', { name: ' Products' }).click();
   await expect(page.getByRole('heading', { name: 'Brands' })).toBeVisible();
   await expect(page.locator('div').filter({ hasText: '(6)Polo (5)H&M (5)Madame (3)' }).nth(5)).toBeVisible();

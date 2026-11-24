@@ -1,7 +1,6 @@
 import { test, expect } from '@playwright/test';
 
 test('test', async ({ page }) => {
-  await page.locator('body').click();
   await page.goto('https://automationexercise.com/');
   await expect(page.getByRole('link', { name: 'Website for automation' })).toBeVisible();
   await expect(page.getByRole('link', { name: ' Home' })).toBeVisible();
