@@ -1,0 +1,36 @@
+import { test, expect } from '@playwright/test';
+
+test('test', async ({ page }) => {
+  test.setTimeout(60_000); 
+  await page.goto('https://automationexercise.com/');
+  await page.getByRole('link', { name: ' Signup / Login' }).click();
+  await page.getByRole('button', { name: 'Login' }).click();
+  await page.getByRole('button', { name: 'Login' }).click();
+  await page.locator('form').filter({ hasText: 'Login' }).getByPlaceholder('Email Address').click();
+  await page.locator('form').filter({ hasText: 'Login' }).getByPlaceholder('Email Address').fill('frozenshreya@gmail.com');
+  await page.getByRole('textbox', { name: 'Password' }).click();
+  await page.getByRole('textbox', { name: 'Password' }).fill('password');
+  await page.getByRole('button', { name: 'Login' }).click();
+  await page.goto('https://automationexercise.com/');
+  await page.getByRole('link', { name: 'Products' }).click();
+  await page.getByRole('textbox', { name: 'Search Product' }).click();
+  await page.getByRole('textbox', { name: 'Search Product' }).fill('black top');
+  await page.locator('#submit_search').click();
+  await page.getByRole('textbox', { name: 'Search Product' }).click();
+  await page.getByRole('textbox', { name: 'Search Product' }).fill('');
+  await page.locator('#submit_search').click();
+  await page.getByRole('textbox', { name: 'Search Product' }).click();
+  await page.getByRole('textbox', { name: 'Search Product' }).fill(' blue top ');
+  await page.locator('#submit_search').click();
+  await expect(page.getByRole('heading', { name: 'Searched Products' })).toBeVisible();
+  await expect(page.locator('div').filter({ hasText: 'Category Women Dress Tops' }).nth(1)).toBeVisible();
+  await expect(page.getByRole('textbox', { name: 'Search Product' })).toBeVisible();
+  await page.getByRole('textbox', { name: 'Search Product' }).click();
+  await page.getByRole('textbox', { name: 'Search Product' }).fill('Blue top');
+  await page.getByRole('textbox', { name: 'Search Product' }).press('Enter');
+  await page.locator('#submit_search').click();
+  await expect(page.getByText('Rs. 500 Blue Top Add to cart').first()).toBeVisible();
+  await expect(page.getByRole('link', { name: ' View Product' })).toBeVisible();
+  await page.getByRole('link', { name: ' View Product' }).click();
+  await expect(page.getByRole('heading', { name: 'Blue Top' })).toBeVisible();
+});
